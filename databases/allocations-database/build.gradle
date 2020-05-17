@@ -1,6 +1,6 @@
 databases {
     devDatabase = "tracker_allocations_dev"
     testDatabase = "tracker_allocations_test"
-    cfDatabase = "tracker-distributed-database"
+    cfDatabase = "tracker-allocations-database"
     cfApp = "tracker-allocations"
 }
