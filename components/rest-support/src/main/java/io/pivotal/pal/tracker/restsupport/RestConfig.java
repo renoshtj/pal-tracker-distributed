@@ -12,11 +12,11 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class RestConfig {
 
-    @Bean
+    /*@Bean
     public RestOperations restOperations() {
         return new RestTemplate();
     }
-
+*/
     @Bean
     @LoadBalanced
     public ObjectMapper objectMapper() {
