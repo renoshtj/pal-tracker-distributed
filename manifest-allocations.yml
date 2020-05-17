@@ -3,12 +3,13 @@ applications:
   path: ./applications/allocations-server/build/libs/allocations-server.jar
   routes:
   - route: allocations-pal-renosh-tj.cfapps.io
-  memory: 1G
+  memory: 2G
   instances: 1
   env:
-    REGISTRATION_SERVER_ENDPOINT: https://registration-pal-renosh-tj.cfapps.io
+    #REGISTRATION_SERVER_ENDPOINT: https://registration-pal-renosh-tj.cfapps.io
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
     GRANT_TYPE: client_credentials
   services:
   - tracker-allocations-database
   - tracker-service-registry
+  - tracker-sso
