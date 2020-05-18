@@ -29,18 +29,13 @@ public class AllocationController {
 
     @PostMapping
     public ResponseEntity<AllocationInfo> create(@RequestBody AllocationForm form) {
-        AllocationRecord.Builder builder= new AllocationRecord.Builder();
-        builder.id(11);
-        builder.projectId(11);
 
-        AllocationRecord recordLocal = new AllocationRecord(builder);
-        return new ResponseEntity<>(present(recordLocal), HttpStatus.CREATED);
-       /* if (projectIsActive(form.projectId)) {
+        if (projectIsActive(form.projectId)) {
             AllocationRecord record = gateway.create(formToFields(form));
             return new ResponseEntity<>(present(record), HttpStatus.CREATED);
         }
 
-        return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);*/
+        return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
     }
 
     @GetMapping
