@@ -11,7 +11,7 @@ public class StoryInfo {
         this(storyInfoBuilder());
     }
 
-    private StoryInfo(Builder builder) {
+    public StoryInfo(Builder builder) {
         id = builder.id;
         projectId = builder.projectId;
         name = builder.name;

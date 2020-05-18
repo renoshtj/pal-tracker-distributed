@@ -27,6 +27,13 @@ public class StoryController {
 
     @PostMapping
     public ResponseEntity<StoryInfo> create(@RequestBody StoryForm form) {
+        StoryInfo.Builder builder = new StoryInfo.Builder();
+        builder.id(form.projectId);
+        builder.projectId(form.projectId);
+        builder.info(form.name);
+        builder.name(form.name);
+        StoryInfo info = new StoryInfo(builder);
+
         if (projectIsActive(form.projectId)) {
             StoryRecord record = gateway.create(mapToFields(form));
             return new ResponseEntity<>(present(record), HttpStatus.CREATED);
