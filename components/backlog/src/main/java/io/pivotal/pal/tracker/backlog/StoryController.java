@@ -33,13 +33,13 @@ public class StoryController {
         builder.info(form.name);
         builder.name(form.name);
         StoryInfo info = new StoryInfo(builder);
-
-        if (projectIsActive(form.projectId)) {
+        return new ResponseEntity<>(info, HttpStatus.CREATED);
+        /*if (projectIsActive(form.projectId)) {
             StoryRecord record = gateway.create(mapToFields(form));
             return new ResponseEntity<>(present(record), HttpStatus.CREATED);
         }
 
-        return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
+        return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);*/
     }
 
     @GetMapping
