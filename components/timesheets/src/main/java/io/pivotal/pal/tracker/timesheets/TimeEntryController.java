@@ -31,9 +31,11 @@ public class TimeEntryController {
     public ResponseEntity<TimeEntryInfo> create(@RequestBody TimeEntryForm form) {
         TimeEntryInfo.Builder builder = new TimeEntryInfo.Builder();
         builder.id(form.userId);
+        builder.userId(form.userId);
         builder.projectId(form.projectId);
         builder.date(form.date);
         builder.info(form.date);
+        builder.hours(form.hours);
         TimeEntryInfo info = new TimeEntryInfo(builder);
         return new ResponseEntity<>(info, HttpStatus.CREATED);
         /*if (projectIsActive(form.projectId)) {
