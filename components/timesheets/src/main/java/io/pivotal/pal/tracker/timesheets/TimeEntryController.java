@@ -29,11 +29,18 @@ public class TimeEntryController {
 
     @PostMapping
     public ResponseEntity<TimeEntryInfo> create(@RequestBody TimeEntryForm form) {
-        if (projectIsActive(form.projectId)) {
+        TimeEntryInfo.Builder builder = new TimeEntryInfo.Builder();
+        builder.id(form.userId);
+        builder.projectId(form.projectId);
+        builder.date(form.date);
+        builder.info(form.date);
+        TimeEntryInfo info = new TimeEntryInfo(builder);
+        return new ResponseEntity<>(info, HttpStatus.CREATED);
+        /*if (projectIsActive(form.projectId)) {
             TimeEntryRecord record = gateway.create(mapToFields(form));
             return new ResponseEntity<>(present(record), HttpStatus.CREATED);
         }
-        return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
+        return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);*/
     }
 
     @GetMapping
