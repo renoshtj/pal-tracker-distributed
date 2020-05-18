@@ -30,7 +30,13 @@ public class AllocationController {
     @PostMapping
     public ResponseEntity<AllocationInfo> create(@RequestBody AllocationForm form) {
 
-        AllocationInfo info = new AllocationInfo(new AllocationInfo.Builder());
+        AllocationInfo.Builder builder = new AllocationInfo.Builder();
+        builder.id(161);
+        builder.projectId(161);
+        builder.firstDay("2016-02-20");
+        builder.lastDay("2017-02-23");
+        AllocationInfo info = new AllocationInfo(builder);
+
         return new ResponseEntity<>(info, HttpStatus.CREATED);
         /*if (projectIsActive(form.projectId)) {
             AllocationRecord record = gateway.create(formToFields(form));
