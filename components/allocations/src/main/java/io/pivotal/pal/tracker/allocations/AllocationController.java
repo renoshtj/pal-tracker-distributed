@@ -31,14 +31,15 @@ public class AllocationController {
     public ResponseEntity<AllocationInfo> create(@RequestBody AllocationForm form) {
 
         AllocationInfo.Builder builder = new AllocationInfo.Builder();
-        builder.id(161);
-        builder.projectId(161);
-        builder.firstDay("2016-02-20");
-        builder.lastDay("2017-02-23");
+        builder.id(form.userId);
+        builder.projectId(form.projectId);
+        builder.firstDay(form.firstDay);
+        builder.lastDay(form.lastDay);
+        builder.userId(form.userId);
         AllocationInfo info = new AllocationInfo(builder);
 
         return new ResponseEntity<>(info, HttpStatus.CREATED);
-        /*if (projectIsActive(form.projectId)) {
+       /* if (form.projectId > 0) {
             AllocationRecord record = gateway.create(formToFields(form));
             return new ResponseEntity<>(present(record), HttpStatus.CREATED);
         }
