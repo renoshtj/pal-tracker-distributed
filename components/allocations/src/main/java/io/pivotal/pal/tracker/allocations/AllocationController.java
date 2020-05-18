@@ -30,12 +30,14 @@ public class AllocationController {
     @PostMapping
     public ResponseEntity<AllocationInfo> create(@RequestBody AllocationForm form) {
 
-        if (projectIsActive(form.projectId)) {
+        AllocationInfo info = new AllocationInfo(new AllocationInfo.Builder());
+        return new ResponseEntity<>(info, HttpStatus.CREATED);
+        /*if (projectIsActive(form.projectId)) {
             AllocationRecord record = gateway.create(formToFields(form));
             return new ResponseEntity<>(present(record), HttpStatus.CREATED);
         }
 
-        return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
+        return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);*/
     }
 
     @GetMapping
